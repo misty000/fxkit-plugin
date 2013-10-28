@@ -15,7 +15,6 @@
     (f project form)))
 
 (defn activate []
-  (println "== activate")
   (robert.hooke/add-hook
     #'leiningen.core.eval/eval-in
     #'eval-in-hook))
