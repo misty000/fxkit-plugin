@@ -6,13 +6,13 @@ A Leiningen hook to compile JavaFX 8 in clojure.
 
 ### Use this for user-level plugins:
 
-Put `[fxkit-plugin "0.1.0"]` into the `:plugins` vector of your
+Put `[fxkit-plugin "0.1.1"]` into the `:plugins` vector of your
 `:user` profile, or if you are on Leiningen 1.x do `lein plugin install
-fxkit-plugin 0.1.0`.
+fxkit-plugin 0.1.1`.
 
 ### Use this for project-level plugins:
 
-Put `[fxkit-plugin "0.1.0"]` into the `:plugins` vector of your project.clj.
+Put `[fxkit-plugin "0.1.1"]` into the `:plugins` vector of your project.clj.
 
 ### usage:
 
