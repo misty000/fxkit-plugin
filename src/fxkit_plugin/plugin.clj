@@ -7,17 +7,17 @@
             [leiningen.compile]))
 
 (defn eval-in-hook [f project form]
-  (let [form (concat
-               (take 1 form)
-               `((com.sun.javafx.application.PlatformImpl/startup ^Runnable (fn [])))
-               (drop 1 form)
-               `((com.sun.javafx.application.PlatformImpl/exit)))]
-    (f project form)))
+  (let [form `(try
+                (com.sun.javafx.application.PlatformImpl/startup ^Runnable (fn []))
+                ~form
+                (catch Exception e#
+                  (.printStackTrace e#))
+                (finally
+                  (com.sun.javafx.application.PlatformImpl/exit)))]
+    (try (f project form)
+      (catch Exception e))))
 
-(defn activate []
+(defn hooks []
   (robert.hooke/add-hook
     #'leiningen.core.eval/eval-in
     #'eval-in-hook))
-
-(defn hooks []
-  (activate))
