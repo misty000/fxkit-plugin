@@ -6,7 +6,7 @@ A Leiningen hook to compile JavaFX 8 in clojure.
 
 ### install:
 
-	:plugins [[fxkit-plugin "0.1.1"]]
+	:plugins [[fxkit-plugin "0.1.2-SNAPSHOT"]]
 
 ### usage:
 
